@@ -1,0 +1,50 @@
+
+.menuList{
+    position: relative;
+}
+
+.menuList > a {
+    width: 84%;
+    display: inline-block;
+    font-size: 0.4rem;
+    line-height: 1rem;
+
+}
+
+.menuList > a > img {
+    margin-top: 0.25rem;
+    width: 25%;
+    height: 100%;
+    float: left;
+}
+
+.menuList > a > p {
+    width: 75%;
+    height: 1rem;
+    float: right;
+    padding-left: 0.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.menuList > section {
+    position: absolute;
+    right: 0.4rem;
+    bottom: 0.4rem;
+    height: 0.75rem;
+    border-radius: 1rem;
+}
+
+.menuList > section > span {
+    display: inline-block;
+    width: 0.5rem;
+    text-align: center;
+    line-height: 0.5rem;
+    font-size: 0.4rem;
+}
+
+.presentPrice:before {
+    content: "¥";
+    font-size: 0.33rem;
+}

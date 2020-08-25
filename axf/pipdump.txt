@@ -1,0 +1,9 @@
+Django==1.11.7
+django-debug-toolbar==1.11
+django-redis==4.10.0
+django-redis-cache==2.1.0
+PyMySQL==0.9.3
+pytz==2019.3
+redis==3.4.1
+six==1.14.0
+sqlparse==0.3.1

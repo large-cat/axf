@@ -1,0 +1,5 @@
+{% extends 'base_user.html' %}
+{% block content %}
+    {{ block.super }}
+    <h2><a href="{% url 'index:login' %}">{{ anwser }},点击回到登录</a></h2>
+{% endblock %}

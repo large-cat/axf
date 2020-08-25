@@ -1,0 +1,43 @@
+{% extends 'base_user.html' %}
+{% load static %}
+
+{% block ext_css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'axp/css/login.css' %}">
+{% endblock %}
+
+{% block ext_js %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'axp/js/login.js' %}"></script>
+{% endblock %}
+
+
+
+{% block content %}
+    {{ block.super }}
+    <div class="head">
+        <div class="login_head">
+            <h2>用户登录</h2>
+        </div>
+    </div>
+    <div id="login">
+        <form method="post" enctype="multipart/form-data" action="{% url 'index:login' %}">
+            {% csrf_token %}
+            <div class="form-group input">
+                <label for="id_username">用户名</label>
+                <input type="text" class="form-control" id="id_username" placeholder="请输入用户名" name="name">
+            </div>
+            <div class="form-group input">
+                <label for="password">密码</label>
+                <input type="password" class="form-control" id="password" placeholder="请输入密码" name="password">
+    {#            <p class="help-block">Example block-level help text here.</p>#}
+            </div>
+            <div class="input my_submit">
+                <button type="submit" class="btn btn-success btn-block" id="btn_login">登录</button>
+            </div>
+        </form>
+    </div>
+        <div class="redirect">
+            <span><a href="{% url 'index:register' %}" >没有账号，去注册</a></span>
+        </div>
+{% endblock %}

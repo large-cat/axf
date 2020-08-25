@@ -1,0 +1,56 @@
+
+.head{
+    width:100%;
+    height: 2rem;
+    background-color: yellow;
+    padding-top: 0.8rem;
+}
+
+.login_head{
+    width: 8rem;
+    height: 1rem;
+    margin: auto;
+    text-align: left;
+}
+
+.login_head h2{
+    font-size: 0.8rem;
+    line-height: 1rem;
+}
+
+#login {
+    margin-top: 1rem;
+}
+
+.input{
+    width: 8rem;
+    margin: 0.2rem auto 0;
+}
+
+.input label{
+    margin-left: 0.5rem;
+    /*margin-top: 0.5rem;*/
+    width: 1.3rem;
+    text-align:justify;
+    text-align-last:justify
+}
+.input label:after{
+    content: ':';
+    text-align: right;
+}
+
+.my_submit{
+    margin-top: 1rem;
+}
+
+.redirect{
+    /*width: 5rem;*/
+    margin: 0 auto;
+    text-align: center;
+}
+
+.redirect span a{
+    color: #5e5e5e;
+    font-size: 0.25rem;
+}
+

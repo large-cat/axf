@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extCSS %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'axf/user/css/user.css' %}">
+{% endblock %}
+
+{% block extJS %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'js/md5.js' %}"></script>
+{% endblock %}
+
+{% block header %}
+    <header></header>
+{% endblock %}

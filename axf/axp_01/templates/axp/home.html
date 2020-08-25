@@ -1,0 +1,96 @@
+{% extends 'base_main.html' %}
+{% load static %}
+
+{% block ext_js %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'js/swiper.jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'axp/js/home.js' %}"></script>
+{% endblock %}
+
+{% block ext_css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'axp/css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div id="home">
+        {#        轮播内容#}
+        <div class="swiper-container" id="topSwiper">
+
+            <div class="swiper-wrapper">
+
+                {% for main_wheel in main_wheels %}
+
+                    <div class="swiper-slide">
+                        <img src="{{ main_wheel.img }}" alt="{{ main_wheel.name }}"/>
+                    </div>
+                {% endfor %}
+
+            </div>
+
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
+
+        </div>
+        {#  首页顶部导航内容   #}
+        <div class="topMenu">
+            <nav>
+                <ul>
+                    {% for main_nav in main_navs %}
+                        <li>
+                            <img src="{{ main_nav.img }}" alt="{{ main_nav.name }}"/>
+                            <span>{{ main_nav.name }}</span>
+                        </li>
+
+                    {% endfor %}
+                </ul>
+            </nav>
+        </div>
+        {#  必买产品#}
+        <div class="swiper-container" id="swiperMenu">
+
+            <ul class="swiper-wrapper">
+
+                    {% for foo in mustbuy %}
+
+                        <li class="swiper-slide">
+                                <img src="{{ foo.img }}" alt="{{ foo.name }}"/>
+{#                                <span>{{ foo.name }}</span>#}
+{#                        123#}
+                        </li>
+                    {% endfor %}
+            </ul>
+
+        </div>
+
+{#  商店       #}
+    <div class="CVS">
+        <h2><img src="{{ shop_container.img }}" alt="{{ shop_container.name }}" /></h2>
+
+        <fieldset>
+            {% for foo in fieldset %}
+                        <a href="#"><img src="{{ foo.img }}" alt="{{ foo.name }}"></a>
+            {% endfor %}
+        </fieldset>
+
+        <ul>
+            {% for foo in main_shop3_7 %}
+                <li>
+                    <img src="{{ foo.img }}" alt="{{ foo.name}}">
+                    <br />
+                    <span>{{ foo.name }}</span>
+                </li>
+            {% endfor %}
+
+        </ul>
+        <ol>
+            {% for foo in main_shop7_12 %}
+                <li>
+                    <a href="#"><img src="{{ foo.img }}" alt="{{ foo.name }}"></a>
+                </li>
+            {% endfor %}
+        </ol>
+    </div>
+    </div>
+
+{% endblock %}

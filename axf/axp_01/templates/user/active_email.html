@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ACTIVE</title>
+    <style>
+        p{
+            text-indent: 32px;
+        }
+    </style>
+</head>
+<body>
+    <h2>亲爱的用户{{ username }}您好：</h2>
+    <p>
+        这是一封关于激活您的账户的邮件。如非本人注册本网站，请忽略该邮件。<br>
+        点击下面的激活按钮进行账户激活
+    </p>
+    <a href="{{ active_url }}"><button>激活</button></a>
+    <p>
+        若点击上面的按钮不能激活账户则将下面的网址复制到浏览器中激活。
+    </p>
+    <p>{{ active_url }}</p>
+</body>
+</html>

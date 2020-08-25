@@ -1,0 +1,57 @@
+{% extends 'base_main.html' %}
+{% load static %}
+
+{% block ext_css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'axp/css/cart.css' %}">
+{% endblock %}
+
+{% block ext_js %}
+    <script type="text/javascript" src="{% static 'axp/js/cart.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div id="top"></div>
+    <section>
+        <menu>
+            <ul>
+                <form action="#">
+                {% csrf_token %}
+                {% for good in cart_list %}
+                    <li>
+                        <a href="#" class="good_block">
+                            <input type="checkbox" name="order_list" value="{{ good.id }}" class="checkbox">
+                            <img src="{{ good.good_id.productimg }}" alt="{{ good.good_id.productlongname }}">
+                            <span class="shoppingInfo">
+                                    <h6>{{ good.good_id.productlongname }}</h6>
+                                    <p class="detailTag">
+                                        <span>精选</span>
+                                        <span></span>
+                                    </p>
+                                    <span class="unit">{{ good.good_id.specifics }}</span>
+
+                                    <div class="price">
+                                        <span>{{ good.good_id.price }}</span>
+                                        <s>{{ good.good_id.marketprice }}</s>
+                                    </div>
+                            </span>
+                        </a>
+                        <section>
+                            <button type="button" id="good_{{ good.id }}" class="button_up">＋</button>
+                                <input class="good_num" id="num_{{ good.id }}" value="{{ good.good_num }}">
+                            <button type="button" id="good_{{ good.id }}" class="button_down">－</button>
+                        </section>
+                    </li>
+                {% endfor %}
+
+                <div class="pay">
+                    <button type="button" id="delete_button" class="cart_button">删除</button>
+                    <button type="button" id="chose_all_button" class="cart_button">全选/全不选</button>
+                    <button type="button" id="pay_button" class="cart_button">结算</button>
+                </div>
+                </form>
+            </ul>
+        </menu>
+    </section>
+    <div id="down"></div>
+{% endblock %}

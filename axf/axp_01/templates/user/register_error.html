@@ -1,0 +1,5 @@
+{% extends 'base_user.html' %}
+{% block content %}
+    {{ block.super }}
+    <h2><a href="{% url 'index:register' %}">{{ anwser }},点击回到注册页面</a></h2>
+{% endblock %}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<ul>
+    {% for item in items %}
+        {% ifequal item forloop.counter0 %}
+            <li>
+                <a href="/axf/getarticle/?page={{ item }}">{{ item }}</a>
+            </li>
+        {% else %}
+            <li hidden>
+                <a href="/axf/getarticle/?page={{ item }}">{{ item }}</a>
+            </li>
+        {% endifequal %}
+    {% endfor %}
+
+</ul>
+
+
+</body>
+</html>

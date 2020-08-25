@@ -1,0 +1,56 @@
+{% extends 'base_user.html' %}
+{% load static %}
+
+{% block ext_css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'axp/css/active.css' %}">
+{% endblock %}
+
+{% block content %}
+    {{ block.super }}
+    <div class="head">
+        <div class="active_head">
+            <h2>用户激活</h2>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="content_head">
+            <h1>{{ username }}您好:</h1>
+        </div>
+
+        <form action="{% url 'index:active' %}" method="post">
+            {% csrf_token %}
+            {# 如果用户注册时没有输入邮箱则提示用户录入邮箱    #}
+            {% if msg %}
+                <p id="msg">{{ msg }}</p>
+            {% endif %}
+            {% if not_have_email %}
+                <p>您的账户未激活,请输入邮箱进行激活：</p>
+            {#      <label for="exampleInputEmail1">邮箱</label>#}
+                    <div class="form-group input">
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="请输入邮箱" name="email_add">
+                    </div>
+                    <div class="input my_submit">
+                        <button type="submit" class="btn btn-success btn-block" id="btn_register">激活</button>
+                    </div>
+
+            {% else %}
+            {#  如果用户注册时录入了邮件地址则直接点击激活     #}
+                <p>您的账户未激活,请点击激活按钮进行激活。</p>
+                <div class="input my_submit">
+                    <a href="{% url 'index:active' %}">
+                        <button type="submit" class="btn btn-success btn-block" id="btn_register">激活</button>
+                    </a>
+                </div>
+            {% endif %}
+
+{#            <div class="tags">#}
+{#                <a href="{% url 'index:mine' %}">暂不激活,回到主页面</a>#}
+{#            </div>#}
+
+        </form>
+
+    </div>
+
+{% endblock %}

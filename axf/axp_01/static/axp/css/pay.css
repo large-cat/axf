@@ -1,0 +1,8 @@
+table{
+    width: 9rem;
+    margin: 1rem auto;
+}
+
+table td{
+    text-align: center;
+}

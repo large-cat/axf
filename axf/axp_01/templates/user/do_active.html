@@ -1,0 +1,8 @@
+{% extends 'base_user.html' %}
+
+{#  邮件已发送到您的邮箱中，请按照邮件内容进行激活账户  #}
+
+{% block content %}
+    {{ block.super }}
+    <a href="{% url 'index:mine' %}"><p>邮件已发送到您的邮箱中，请按照邮件内容进行激活账户。点击回到个人页面</p></a>
+{% endblock %}

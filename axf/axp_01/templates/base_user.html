@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block ext_css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'axp/css/main.css' %}">
+{% endblock %}
+
+{% block footer %}
+    {{ block.super }}
+    <style>
+        .home{
+            margin: 0 auto;
+        }
+    </style>
+    <footer>
+       <a href="{% url 'index:home' %}" class="home">
+            <dl>
+                <dt>
+                    <span></span>
+                </dt>
+                <dd>回到首页</dd>
+            </dl>
+        </a>
+    </footer>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base_user.html' %}
+{% load static %}
+
+{% block ext_css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'axp/css/pay.css' %}">
+{% endblock %}
+
+{% block content %}
+    <table class="table table-striped table-hover table-bordered">
+    {% for order in order_list %}
+        <tr>
+            <td>{{ order.good_id.productlongname }}</td>
+            <td>￥{{ order.good_id.price }}</td>
+            <td>{{ order.good_num }}</td>
+        </tr>
+    {% endfor %}
+    <tr>
+        <td>总计</td>
+        <td colspan="2">￥{{ total_sum }}</td>
+    </tr>
+    </table>
+
+
+    
+{% endblock %}

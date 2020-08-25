@@ -1,0 +1,60 @@
+.head{
+    width:100%;
+    height: 2rem;
+    background-color: yellow;
+    padding-top: 0.8rem;
+}
+
+.active_head{
+    width: 8rem;
+    height: 1rem;
+    margin: auto;
+    text-align: left;
+}
+.active_head h2{
+    font-size: 0.8rem;
+    line-height: 1rem;
+}
+
+.content{
+    width: 8rem;
+    margin: 0 auto;
+}
+
+.content_head{
+    font-size: 0.5rem;
+    margin: 1rem 0;
+    color: black;
+}
+
+.input{
+    width: 8rem;
+    margin: 0.5rem auto;
+}
+.my_submit{
+    width: 8rem;
+    margin-top: 1rem;
+}
+
+#btn_register{
+    color: white;
+}
+
+p{
+    text-indent:0.5rem;
+}
+
+#msg{
+    color: #900;
+}
+
+.tags{
+    width: 8rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.tags a{
+    font-size: 0.25rem;
+    color: #5e5e5e;
+}

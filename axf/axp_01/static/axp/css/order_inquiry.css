@@ -1,0 +1,13 @@
+table{
+    width: 9rem;
+    margin: 1rem auto;
+}
+
+table td{
+    text-align: center;
+}
+
+.order_th{
+    background-color: #007aff;
+    text-align: center;
+}

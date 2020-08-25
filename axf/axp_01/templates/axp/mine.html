@@ -1,0 +1,118 @@
+{% extends 'base_main.html' %}
+{% load static %}
+
+{% block ext_css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'axp/css/mine.css' %}">
+{% endblock %}
+
+{% block ext_js %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'axp/js/mine.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div id="mine">
+        <div class="fixed">
+            <span>
+                {% if is_login %}
+                    {% if user.u_icon %}
+                        <span><img src="{{ user.u_icon }}" alt="{{ user.u_username }}"></span>
+                        {% else %}
+                        <span class="glyphicon glyphicon-user"></span>
+                    {% endif %}
+                {% else %}
+                    <span class="glyphicon glyphicon-user"></span>
+                {% endif %}
+            </span>
+            {% if is_login %}
+                <p>{{ user.u_username }}</p>
+                {% else %}
+                <p><a href="{% url 'index:login' %}">未登录</a></p>
+            {% endif %}
+
+            <p>
+                <span class="glyphicon glyphicon-fire"></span>
+                <span>等级</span>
+            </p>
+            <p>
+                <span class="glyphicon glyphicon-heart"></span>
+                <span>新品收藏</span>
+            </p>
+        </div>
+        {% if not is_login %}
+            <a href="{% url 'index:register' %}" id="regis">注册</a>
+        {% else %}
+            {% if not is_active %}
+                <a href="{% url 'index:active' %}" id="regis">未激活</a>
+            {% endif %}
+        {% endif %}
+        <div class="mine_d">
+
+            <div class="more">
+                <a href="#">我的订单</a>
+                <a href="#"><span class="glyphicon glyphicon-chevron-right"></span>更多</a>
+            </div>
+
+            <div id="nav">
+                <ul>
+                    <li>
+                        <dl>
+                            <dt><span class="glyphicon glyphicon-usd" id="pending_payment"></span><span>待付款</span></dt>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt><span class="glyphicon glyphicon-envelope" id="to_be_received"></span><span>待收货</span></dt>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt><span class="glyphicon glyphicon-pencil" id="to_be_evaluated"></span><span>待评价</span></dt>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt><span class="glyphicon glyphicon-retweet"></span><span>退款/售后</span></dt>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li>
+                        <dl>
+                            <dt><span class="glyphicon glyphicon-bullhorn"></span><span>积分商城</span></dt>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt><span class="glyphicon glyphicon-credit-card"></span><span>优惠券</span></dt>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt><span class="glyphicon glyphicon-import"></span><span>优惠券</span></dt>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt><span class="glyphicon glyphicon-phone-alt"></span><span>客服/反馈</span></dt>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt><span class="glyphicon glyphicon-certificate"></span><span>关于我们</span></dt>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+            {% if is_login%}
+                <p><a href="{% url 'index:login_out' %}">退出当前账号</a></p>
+            {% endif %}
+
+
+        </div>
+    </div>
+{% endblock %}
